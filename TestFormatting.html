@@ -1,0 +1,84 @@
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .column {
+        float: left;
+        width: 50%;
+        padding: 10px;
+        /* Should be removed. Only for demonstration */
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 400px) {
+        .column {
+            width: 100%;
+        }
+    }
+</style>
+<div class="row">
+    <div class="column">
+        <h1><img src="WCA.png" width=10%>WCA competitions</h1>
+        <p>WCA Competitions are official competitions that post your scores onto the internet, and are kept as official
+            records by the WCA, unlike our club-only DHS competitions. WCA Comps can be difficult to organize, as the
+            closest ones to Davis are always in Sacramento or San Francisco, and there is also a fee to get into the
+            competition. To sucessfully attend a competition, we will need to fundraise money for the competition fees,
+            gas, and the toll roads (for SanFransisco bridges) in advance, meet early in the morning at a DHS parking
+            lot, and have us all pile into as few vehicles as possible (to save gas) to drive over.
+            To furthur complicate matters, most cubing competitions don’t have all WCA cubing events. This means that
+            you may be able to compete in 3x3 in a competition, but you cannot compete in 7x7. In some extreme cases,
+            the common 3x3 event is not availible, but less common events such as megaminx and square-1 are availible
+            instead. Knowing all of the above, we have drafted the following criteria for selecting a cube competition
+            that our club will attend:
+            <ol>
+                <li>Must be less than 100 miles from Davis (San Fransisco, Sacramento)</li>
+                <li>Must have 3x3 as an availible event</li>
+                <li>Must be on a Saturday or Sunday (So as to not miss school)</li>
+                <li>Must have at least 3 of the following events: 
+                    <ul>
+                        <li>4x4</li> 
+                        <li>5x5</li>  
+                        <li>6x6</li>  
+                        <li>7x7</li>  
+                        <li>Square-1</li>  
+                        <li>Pyraminx</li> 
+                        <li>Skewb</li> 
+
+                    </ul>
+                </li>
+            </ol>
+            While difficult to pull off, attending official competitions is a great experience for everyone in the
+            cubing club, and it will help members get integrated in the California cubing community, and also get their
+            scores posted online for everyone to see (which you can show to people if you did well).
+        </p>
+        <p>WCA scores can be viewed here on the <a href="https://www.worldcubeassociation.org/">WCA website</a>.</p>
+    </div>
+    <div class="column">
+        <h1><img src="CubeAlliance.png" width=10%>DHS competitions</h1>
+        <p>Participation in DHS competitions are mandatory for all DHS Cube Alliance members. The rules are the same as
+            WCA competitions, only that records will not be honored by the WCA. All event scores are recorded for the
+            club data, and will be posted on the CubeAlliance website unless you ask that we don't. Even if you are not
+            having your scores posted on the CubeAlliance website, we still ask for full effort in the competition.</p>
+        <h2>Full list of DHS events:</h2>
+        <ul>
+            <li>2x2</li>
+            <li>3x3</li>
+            <li>4x4</li>
+            <li>5x5</li>
+            <li>6x6</li>
+            <li>7x7</li>
+            <li>Pyraminx</li>
+            <li>Skewb</li>
+            <li>Square-1</li>
+            <li>Megaminx</li>
+        </ul>
+    </div>
+</div>

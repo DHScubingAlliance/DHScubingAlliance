@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        body {
+            background-color: turquoise;
+            margin: 0;
+            padding: 10;
+            animation-duration: 3s;
+            font-family: 'Courier New', Courier, monospace;
+            background-image: url('BackGround.png');
+            background-attachment: fixed;
+        }
+
+        p {
+            font-size: 15px;
+            padding-left: 10px;
+            margin-left: 10px;
+            color: black;
+            font-weight: bold;
+        }
+
+        /*Code to keep top bar from slipping*/
+        div.sticky {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            background-color: white;
+        }
+
+        /*General*/
+        h1 {
+            color: black;
+            padding-left: 10px;
+            margin-left: 10px;
+            font-size: 50px;
+        }
+
+        h2 {
+            color: black;
+            padding-left: 10px;
+            margin-left: 10px;
+            font-size: 40px;
+        }
+
+        h3 {
+            color: black;
+            padding-left: 10px;
+            margin-left: 10px;
+            font-size: 25px;
+        }
+
+        li {
+            font-weight: bold;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            color: black;
+            padding: 15px;
+            font-family: Consolas;
+            border-collapse: collapse;
+            padding-left: 30px;
+            margin-left: 30px;
+        }
+
+        a {
+            color: blue;
+        }
+
+        /*Top bar button*/
+        .dropbtn {
+            background-color: rgb(26, 24, 117);
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #0c0549;
+        }
+
+        /*Competition Descriptions*/
+        * {
+            box-sizing: border-box;
+        }
+
+        .column {
+            float: left;
+            width: 50%;
+            padding: 10px;
+            background-color: white;
+            /* Should be removed. Only for demonstration */
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 400px) {
+            .column {
+                width: 100%;
+            }
+        }
+
+        iframe {
+            padding-left: 10px;
+            margin-left: 10px;
+            border: none;
+        }
+    </style>
+    <link rel="shortcut icon" type="image/png" href="/CubeAlliance.png" />
+    <link rel="shortcut icon" type="image/png" href="CubeAlliance.png" />
+    <title>DHS Cubing Alliance</title>
+</head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<div class="sticky" id="top bar" width=100%>
+    <img src="CubeAlliance.png" height="100">
+    <div class="dropdown">
+        <button class="dropbtn" onclick="Home();"><i class="material-icons" alt="home">house</i></button>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Tutorials</button>
+        <div class="dropdown-content">
+            <a href="#" onclick="ThreeXThree();">3x3</a>
+            <a href="#" onclick="NxN();">2x2, 4x4-7x7</a>
+            <a href="#" onclick="MorePuzzles();">Other Puzzles</a>
+            <a href="#" onclick="Extras();">Notation & Tricks</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn" onclick="Comps();">Competitions</button>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Meet the Club</button>
+        <div class="dropdown-content">
+            <a href="#" onclick="Joining();">How do I join?</a>
+            <a href="#" onclick="Purpose();">Our Mission</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Member List</button>
+        <div class="dropdown-content">
+            <a href="#" onclick="Members2020_2021();">2020-2021</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn" onclick="FAQs();">FAQs</button>
+    </div>
+</div>
+<div id="textZone">
+    <h1 id="dynamic">Welcome</h1>
+</div>
+<script>
+    Home();
+    function Purpose() {
+        document.body.style.background = "url('Canvas.png')";
+        document.getElementById("textZone").innerHTML = `
+        <h1>Our Mission</h1>
+        `;
+    }
+    function Joining() {
+        document.body.style.background = "url('Canvas.png')";
+        document.getElementById("textZone").innerHTML = `
+        <h1>Join DHS Cubing Alliance</h1>
+        <h3>Thank you for showing interest in joining the DHS Cubing Alliance!</h3>
+        <p style="color:black;">There are <b style="color:teal">3 requirements</b> for joining the DHS Cubing Alliance:</p>
+        <ol>
+            <li>You must be a 10th-12th grader attending Davis Senior High school.</li>
+            <li>You must have a GPA equal to or above a 3.0, with a weighted 5.0 grade scale.</li>
+            <li>You must be able to solve a 3x3 Rubik's cube under 1 minute and 30 seconds on average for <b style="color:teal">3 times</b>.</li>
+        </ol>
+        <h3>Meetings</h3>
+        <p style="color:black;">This is our current general meeting schedule:</p>
+        <ol>
+            <li>Sunday: - - - </li>
+            <li>Monday: Lunch </li>    
+            <li>Tuesday: - - - </li>    
+            <li>Wednesday: Lunch </li>    
+            <li>Thursday: - - - </li>    
+            <li>Friday: 3:40 PM - 5:00 PM </li>    
+            <li>Saturday: - - - </li>    
+        </ol>
+        <p>Attending 80% of general meetings is mandatory for all DHS Cubing Alliance members.</p>
+        `;
+    }
+    function results(){
+        document.body.style.background = "url('Canvas.png')";
+    }
+    function Comps() {
+        document.body.style.background = "url('Canvas.png')";
+        document.getElementById("textZone").innerHTML = `
+        <div class="row">
+    <div class="column">
+        <h1 style="color:black;"><img src="WCA.png" width=10%>WCA competitions</h1>
+        <p style="color:black;">WCA Competitions are official competitions that post your scores onto the internet, and are kept as official
+            records by the WCA, unlike our club-only DHS competitions. WCA Comps can be difficult to organize, as the
+            closest ones to Davis are always in Sacramento or San Francisco, and there is also a fee to get into the
+            competition. To successfully attend a competition, we will need to fund raise money for the competition fees,
+            gas, and the toll roads (for SanFransisco bridges) in advance, meet early in the morning at a DHS parking
+            lot, and have us all pile into as few vehicles as possible (to save gas) to drive over.
+            To further complicate matters, most cubing competitions don’t have all WCA cubing events. This means that
+            you may be able to compete in 3x3 in a competition, but you cannot compete in 7x7. In some extreme cases,
+            the common 3x3 event is not available, but less common events such as megaminx and square-1 are available 
+            instead. Knowing all the above, we have drafted the following criteria for selecting a cube competition
+            that our club will attend:
+            <ol>
+                <li>Must be less than 100 miles from Davis (San Fransisco, Sacramento)</li>
+                <li>Must have 3x3 as an available event</li>
+                <li>Must be on a Saturday or Sunday (So as to not miss school)</li>
+                <li>Must have at least 3 of the following events: 
+                    <ul>
+                        <li>4x4</li> 
+                        <li>5x5</li>  
+                        <li>6x6</li>  
+                        <li>7x7</li>  
+                        <li>Square-1</li>  
+                        <li>Pyraminx</li> 
+                        <li>Skewb</li> 
+
+                    </ul>
+                </li>
+            </ol>
+            <p style="color:black;">While difficult to pull off, attending official competitions is a great experience for everyone in the
+            cubing club, and it will help members get integrated in the California cubing community, and also get their
+            scores posted online for everyone to see (which you can show to people if you did well).</p>
+        </p>
+        <p>WCA scores can be viewed here on the <a href="https://www.worldcubeassociation.org/">WCA website</a>.</p>
+    </div>
+    <div class="column">
+        <h1 style="color:black;"><img src="CubeAlliance.png" width=10%>DHS competitions</h1>
+        <p style="color:black;">Participation in DHS competitions are mandatory for all DHS Cube Alliance members. The rules are the same as
+            WCA competitions, only that records will not be honored by the WCA. All event scores are recorded for the
+            club data, and will be posted on the CubeAlliance website unless you ask that we don't. Even if you are not
+            having your scores posted on the CubeAlliance website, we still ask for full effort in the competition.</p>
+        <h2 style="color:black;">Full list of DHS events:</h2>
+        <ul>
+            <li>2x2</li>
+            <li>3x3</li>
+            <li>4x4</li>
+            <li>5x5</li>
+            <li>6x6</li>
+            <li>7x7</li>
+            <li>Pyraminx</li>
+            <li>Skewb</li>
+            <li>Square-1</li>
+            <li>Megaminx</li>
+        </ul>
+        <p>Remember, the purposes of these competitions are for training; Think of the WCA competition as 
+            the final test, and DHS competitions as practice tests. Simply practicing the routine of a competition
+            will better prepare you for the actual competition, even if you practice the same with or without the 
+            practice competition.</p>
+        <p style="color:black;">All DHS competition scores recieved will be posted below.</p>
+        <p style="color:navy; font-size:19px;">Go Blue Cubers!</p>
+    </div>
+</div>
+        `;
+    }
+    function History() {
+        document.body.style.background = "url('Canvas.png')";
+        document.getElementById("textZone").innerHTML = `
+        <h1>Our History</h1>
+        `;
+    }
+    function FAQs() {
+        document.body.style.background = "url('Canvas.png')";
+        document.getElementById("textZone").innerHTML = `
+        <h1>FAQs</h1>
+        <h3>Q: Can you teach me how to solve a cube?</h3>
+        <p>A: Yes, we can! We are always open to newcomers dropping in, and we can teach you how to solve a cube during a meeting. No experience is necessary, and it is
+         open for <b>any</b> DHS student! In addition, we have <a onclick="ThreeXThree();">Digital tutorials</a> on how to solve a cube.</p>
+        <h3>Q: When is the next WCA Competition?</h3>
+        <p>A: The next competition will be discussed at club meetings. It can take a while to determine a good competition, due to proximity to Davis, Time, Cost, and events.</p>
+        <h3>Q: What's the "WCA"?</h3>
+        <p>A: The WCA, or World Cube Association, is the governing organization that hosts competitions globally. They keep track of everyone's times, and post them online to their website for the public.</p>
+        <h3>Q: Where can I see my scores (and my friend's too)?</h3>
+        <p>A: For unofficial competitions hosted by the DHS Cubing Alliance, you can view your scores in the <a>Public Member Records</a> section. For WCA scores, you can see</p>
+        <h3>Question</h3>
+        <p>Answer</p>
+        `;
+    }
+    function ThreeXThree() {
+        document.body.style.background = "url('Canvas.png')";
+        document.getElementById("textZone").innerHTML = `
+        <h1>3x3 Tutorials</h1>
+        <h2>Basic 3x3 tutorial</h2>
+        <iframe width=640 height=360 src="https://www.youtube.com/embed/R-R0KrXvWbc"></iframe>
+        <p>Video created by Robbie Gonzalez and WIRED</p>
+
+        <h1>Learn Cube Notation before proceeding.</h1>
+
+        <h2><b style="color:navy;">Speedsolving</b> PLL alggorithims (21 cases)</h2>
+        <iframe width=640 height=360 src="https://www.youtube.com/embed/JvqGU0UZPcE"></iframe>
+        <p>Video created by Dylan Wang, aka Jperm</p>
+
+        <h2><b style="color:navy;">Speedsolving</b> OLL algorithims (57 cases)</h2>
+        <iframe width=640 height=360 src="https://www.youtube.com/embed/47JfJxU7EjM"></iframe>
+        <p>Video created by Dylan Wang, aka Jperm</p>
+
+        <h2><b style="color:navy;">Speedsolving</b> F2L</h2>
+        <iframe width=640 height=360 src="https://www.youtube.com/embed/3B_oB2YrLvk"></iframe>
+        <p>Video created by Dylan Wang, aka Jperm</p>
+
+        <h2><b style="color:navy;">Speedsolving</b> F2L algorithims (77 - 169 cases)</h2>
+        <iframe width=640 height=360 src="https://www.youtube.com/embed/3B_oB2YrLvk"></iframe>
+        <p>Video created by Dylan Wang, aka Jperm</p>
+
+        <h2><b style="color:navy;">Speedsolving</b> Color Neutrality</h2>
+        <iframe width=640 height=360 src="https://www.youtube.com/embed/3Rbb2H8A7ms"></iframe>
+        <p>Video created by Dylan Wang, aka Jperm</p>
+        `;
+    }
+    function NxN() {
+        document.body.style.background = "url('Canvas.png')";
+        document.getElementById("textZone").innerHTML = `
+        <h1>2x2-7x7 Tutorials</h1>
+
+        <h2><b style="color:navy;">Speedsolving</b> 2x2 Ortega Method</h2>
+        <iframe width=640 height=360 src="https://www.youtube.com/embed/z2gOUzMmY3w"></iframe>
+        <p>Video created by Dylan Wang, aka Jperm</p>
+
+        <h2>4x4 tutorial</h2>
+        <iframe width=640 height=360 src="https://www.youtube.com/embed/KWOZHbDdOeo"></iframe>
+        <p>Video created by Dylan Wang, aka Jperm</p>
+
+        <h2>5x5 tutorial</h2>
+        <iframe width=640 height=360 src="https://www.youtube.com/embed/d1I-jJlVwB4"></iframe>
+        <p>Video created by Dylan Wang, aka Jperm</p>
+
+        <h2><b style="color:navy;">Speedsolving</b> Big cube fundamentals</h2>
+        <iframe width=640 height=360 src="https://www.youtube.com/embed/qfdmRCRGLDA"></iframe>
+        <p>Video created by Dylan Wang, aka Jperm</p>
+        `;
+    }
+    function MorePuzzles() {
+        document.body.style.background = "url('Canvas.png')";
+        document.getElementById("textZone").innerHTML = `
+        <h1>Non-NxN WCA puzzles</h1>
+
+        <h2>Square-1 tutorial</h2>
+        <iframe width=640 height=360 src="https://www.youtube.com/embed/0tX-f6RLgac"></iframe>
+        <p>Video created by Z3 Cubing</p>
+
+        <h2>Megaminx tutorial</h2>
+        <iframe width=640 height=360 src="https://www.youtube.com/embed/oVRooYDvRqg"></iframe>
+        <p>Video created by Dylan Wang, aka Jperm</p>
+
+        <h2>Skewb tutorial</h2>
+        <iframe width=640 height=360 src="https://www.youtube.com/embed/I6132yshkeU"></iframe>
+        <p>Video created by Z3 Cubing</p>
+        
+        <h2>Pyraminx tutorial</h2>
+        <iframe width=640 height=360 src="https://www.youtube.com/embed/x_idkIGLe6U"></iframe>
+        <p>Video created by Cubeorithims</p>
+        `;
+    }
+    function Extras() {
+        document.body.style.background = "url('Canvas.png')";
+        document.getElementById("textZone").innerHTML = `
+        <h1>Cubing tips</h1>
+        <h2>Cube Notation</h2>
+        <iframe width=640 height=360 src="https://www.youtube.com/embed/24eHm4ri8WM"></iframe>
+        <p>Video created by Dylan Wang, aka Jperm</p>
+
+        <h2>Finger Tricks</h2>
+        <iframe width=640 height=360 src="https://www.youtube.com/embed/wLuVF9Dk3AQ"></iframe>
+        <p>Video created by Dylan Wang, aka Jperm</p>
+        `;
+    }
+    function Home() {
+        document.body.style.background = "url('BackGround.png')";
+        document.getElementById("textZone").innerHTML = `
+        <h1>Home</h1>
+        `;
+    }
+    function Members2020_2021() {
+        document.body.style.background = "url(Canvas.png)";
+        document.getElementById("textZone").innerHTML = `
+        <h1 style="color:black">Our Members</h1>
+        <h2 style="color:black">2020 - 2021</h2>
+        <table style="margin-left:10;">
+            <tr>
+                <th style="color:black">Picture</th>
+                <th style="color:black">Firstname</th>
+                <th style="color:black">Lastname</th> 
+                <th style="color:white; background:red">YouTube</th>
+                <th style="color:black">Joined</th>
+                <th style="color:black">Bio</th>
+            </tr>
+            <tr>
+                <td><img src="YuXin.jfif" height=100></td>
+                <td>First</td>
+                <td>Last</td>
+                <th style="color:white; background:red">YouTube</th>
+                <td>Join Date</td>
+                <td>Bio</td>
+            </tr>
+        </table>
+        <p style="color:black">Club President: AZ</p>
+        <p style="color:black">Club Vice-President: KW</p>
+        `;
+    }
+</script>
+
+</html>
